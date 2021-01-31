@@ -23,26 +23,27 @@ public class MenuUtil {
 				choice = sc.nextInt();
 				switch (choice) {
 				case 1:
+					Order order = new Order();
 					
-					System.out.println("Enter Your Choice");
-					int ch=sc.nextInt();
-					if(ch==1)
-					{
-						System.out.println("Enter Customer ID");
-						int cust_ID=sc.nextInt();
-						System.out.println("Enter Customer Name");
-						String cust_name=sc.next();
-						orderservice.addOrder(cust_ID, cust_name );
-						System.out.println("--------------------Successfully Added--------------------------");
-					}
-					else if(ch==2)
-					{
-						System.out.println("Enter Book ID");
-						int book_ID=sc.nextInt();
-						bookservice.deleteBook(book_ID);
-						System.out.println("-----------------------Successfully Deleted------------------------");
+					System.out.println("Enter Customer ID");
+					order.setCustomerId = sc.nextInt();
 						
-					}
+					System.out.println("Enter Order Number");
+					order.setOrderNo = sc.nextInt();
+						
+					System.out.println("Enter Amount");
+					order.setTotalAmount = sc.nextDouble();	
+						
+					order.setOrderDate = LocalDate.now(); 
+						
+					System.out.println("Enter Status");
+					order.setStatus=sc.next();
+						
+					O
+					orderService.addOrder(order);
+					System.out.println("---------------Order Successfully Added-------------------");
 					
 					break;
-
+				}
+			}
+		}
