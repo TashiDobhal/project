@@ -1,0 +1,71 @@
+package com.cg.daoImpl;
+
+import java.time.LocalDate;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+
+import com.cg.dao.OrderDAO;
+import com.cg.domain.Order;
+import com.cg.util.JPAUtil;
+
+
+public class OrderDAOImpl implements OrderDAO{
+	JPAUtil util;
+	EntityManager entitymanager;
+	public OrderDAOImpl() {
+		util=new JPAUtil();
+	}
+
+	@Override
+	public Order addOrder(Order order) {
+		entitymanager=util.createEntityManager();
+		entitymanager.getTransaction().begin();
+		entitymanager.persist(order);
+		entitymanager.getTransaction().commit();
+	    return order;
+
+		
+	}
+
+	@Override
+	public void viewOrder(int orderid) {
+		entitymanager=util.createEntityManager();
+		entitymanager.getTransaction().begin();
+		Order order=entitymanager.find(Order.class, orderid);
+		
+		
+		
+	}
+
+	@Override
+	public void updateOrderDetails(Order order) {
+		// TODO Auto-generated method stub
+	
+	}
+
+	@Override
+	public List<Order> viewAllOrders(int custid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Order> viewOrderList(LocalDate date) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Order> viewOrderList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Order cancelOrder(int orderid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
