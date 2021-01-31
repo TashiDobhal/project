@@ -15,12 +15,10 @@ public class OrderServiceImpl implements OrderService {
 	}
 	@Override
 	public Order addOrder(Order order) {
-		Order s=new Order();
-		s.setCustomerId(customerId);
-		s.setStd_Name(name);
-		stdao.addStudent(s);
 		
-		return null;
+		stdao.addStudent(order);
+		
+		return order;
 	}
 
 	@Override
